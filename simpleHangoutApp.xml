@@ -12,7 +12,7 @@
  * License for the specific language governing permissions and limitations under
  * the License
 -->
-    <ModulePrefs title="Equally Sized Users">
+    <ModulePrefs title="Hangout Starter">
         <Require feature="rpc" />
         <Require feature="views" />
         <Require feature="locked-domain" />
@@ -40,20 +40,15 @@
  
 <script src="//plus.google.com/hangouts/_/api/v1/hangout.js"></script>
  
-<h3>Simple Hangout App</h3>
- 
-<p>
-<input class="button" type="button" value="Show participants!" id="showParticipants" 
-    style="visibility:hidden;"
-    onClick="showParticipants()"/>
-</p>
- 
-<div id="participantsDiv"></div>
- 
-<hr>
- 
-<p><a href="http://developers.google.com/+/hangouts/getting-started">Read the docs</a> to learn more about developing hangouts!</a></p>
- 
+var id = gapi.hangout.getLocalParticipantId();
+var canvas = gapi.hangout.layout.getVideoCanvas();
+
+canvas.setWidth(600);
+canvas.setPosition(300, 50);
+canvas.setVisible(true);
+
+
+
 <script>
 function showParticipants() {
   var participants = gapi.hangout.getParticipants();
